@@ -38,7 +38,8 @@ class PythonWrapper : boost::noncopyable
 };
 
 template <typename T>
-std::unique_ptr<T> maybeExtract(const bp::object & object)
+typename std::enable_if<std::is_copy_constructible<T>::value, std::unique_ptr<T>>::type
+maybeExtract(const bp::object & object)
 {
     if(object.is_none())
         return std::unique_ptr<T>();
