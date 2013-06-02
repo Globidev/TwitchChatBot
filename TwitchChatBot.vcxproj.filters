@@ -81,6 +81,9 @@
     <None Include="Twitch_oauth.py">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="IRCParser.py">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Ressources.qrc">

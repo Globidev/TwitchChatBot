@@ -46,4 +46,20 @@ maybeExtract(const bp::object & object)
     return std::unique_ptr<T>(new T(bp::extract<T>(object)));
 }
 
+template <typename ... Args>
+void unpackPythonTuple(const bp::tuple & pytuple, Args & ... args)
+{
+    unpack<0, Args ...>(pytuple, args ...);
+}
+
+template <int i, typename T, typename ... Args>
+void unpack(const bp::tuple & pytuple, T & t, Args & ... args)
+{
+    t = bp::extract<T>(pytuple[i]);
+    unpack<i + 1, Args ...>(pytuple, args ...);
+}
+
+template <int i>
+void unpack(const bp::tuple &) { }
+
 #endif // PYTHONWRAPPER_H

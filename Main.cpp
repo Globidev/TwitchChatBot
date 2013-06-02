@@ -7,13 +7,12 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    ChatBot globibot("globibot", 
+    ChatBot globibot("globinette", 
                      "32g35w5dtbptxveuuovuo82as753mb3",
                      "ouf5m8taz9e5vo0rk6fxgw6e2qxma5g");
 
-    ChatRoom room(globibot, "globinette");
+    ChatRoom room(globibot, "wcs_america");
     
-
     QLineEdit lineEdit;
     QObject::connect(&lineEdit, &QLineEdit::returnPressed, [&]
     {

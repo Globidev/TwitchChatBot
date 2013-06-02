@@ -17,7 +17,7 @@ ChatBot::ChatBot(const std::string & nickName,
         bp::object getAccessFunc = globals[GET_ACCES_TOKEN_FUNC_NAME];
         bp::object result = getAccessFunc(clientId_, clientSecret_);
         oauthAccessToken_ = std::move(maybeExtract<std::string>(result));
-    }, true);
+    }, false);
 
     qDebug() << (oauthAccessToken_ ? "success" : "fail");
 }

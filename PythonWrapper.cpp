@@ -9,7 +9,8 @@ PythonWrapper::PythonWrapper()
     globals_ = bp::import(MAIN_MODULE).attr(DICT_ATTR);
     mainThreadState_ = PyEval_SaveThread();
 
-    execFile(":/Python/Twitch");
+    execFile(":/Python/Twitch", false);
+    execFile(":/Python/IRCParser", false);
 
     qAddPostRoutine(clean);
 }
@@ -42,7 +43,7 @@ void PythonWrapper::exec(const PyFunctor & pyFunctor, bool concurrent)
         std::thread(
             std::bind(&PythonWrapper::execImpl, &self, bindedFunctor)));
     
-    if(concurrent) self.threads_.rbegin()->join();
+    if(!concurrent) self.threads_.rbegin()->join();
 }
 
 void PythonWrapper::exec(const QString & code, bool concurrent)

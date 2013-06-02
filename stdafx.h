@@ -4,7 +4,6 @@
 #include <QtNetwork>
 
 #include <boost/python.hpp>
-
 namespace bp = boost::python;
 
 #include <functional>

@@ -4,7 +4,6 @@
 Constant TWITCH_CHANNEL_IRC = [](const QString & channel) 
                               { return QString("%1.jtvirc.com").arg(channel); };
 Constant TWITCH_IRC_PORT = quint16(6667);
-
 Constant CONNECT_TIMEOUT = 10000;
 
 class IRCSocket : public QTcpSocket
