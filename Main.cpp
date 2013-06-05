@@ -3,6 +3,8 @@
 #include "ChatBot.h"
 #include "ChatRoom.h"
 
+#include "IRCParser.h"
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -11,7 +13,7 @@ int main(int argc, char *argv[])
                      "32g35w5dtbptxveuuovuo82as753mb3",
                      "ouf5m8taz9e5vo0rk6fxgw6e2qxma5g");
 
-    ChatRoom room(globibot, "wcs_america");
+    ChatRoom room(globibot, "globinette");
     
     QLineEdit lineEdit;
     QObject::connect(&lineEdit, &QLineEdit::returnPressed, [&]
@@ -20,6 +22,6 @@ int main(int argc, char *argv[])
         lineEdit.clear();
     });
     lineEdit.show();
-    
+
     return a.exec();
 }

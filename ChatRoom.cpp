@@ -3,6 +3,7 @@
 
 #include "ChatBot.h"
 #include "IRCSocket.h"
+#include "IRCParser.h"
 
 #include "PythonWrapper.h"
 
@@ -14,18 +15,8 @@ ChatRoom::ChatRoom(const ChatBot & chatBot,
     QObject::connect(socket_.get(), &IRCSocket::messageReceived, 
     [](const QString & message)
     {
-        PythonWrapper::exec([message](const bp::object & globals)
-        {
-            bp::object parseFunction = globals[PARSE_IRC_MESSAGE_FUNC_NAME];
-            auto result = bp::call<bp::tuple>(parseFunction.ptr(), 
-                                             message.toLocal8Bit().constData());
-            std::string p, c;
-            bp::list a;
-            unpackPythonTuple(result, p, c, a);
-            qDebug() << p.c_str() << c.c_str();
-            for(int i = 0; i < bp::len(a); ++ i)
-                qDebug() << bp::extract<char *>(a[i]);
-        });
+        auto parsedMessage = IRC::parseMessage(message);
+
     });
 
     if(socket_->connect(channelName_) && chatBot.isReady())

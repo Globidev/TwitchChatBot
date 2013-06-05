@@ -17,8 +17,6 @@ Constant PRIVATE_MESSAGE = [](const QString & channel, const QString & message)
                            { return QString("PRIVMSG #%1 :%2")
                                         .arg(channel, message); };
 
-Constant PARSE_IRC_MESSAGE_FUNC_NAME = "parsemsg";
-
 class ChatRoom : boost::noncopyable
 {
     public :

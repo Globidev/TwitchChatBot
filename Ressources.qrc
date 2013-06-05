@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/Python">
         <file alias="Twitch">Twitch_oauth.py</file>
-        <file alias="IRCParser">IRCParser.py</file>
     </qresource>
 </RCC>

@@ -11,3 +11,4 @@ namespace bp = boost::python;
 #include <thread>
 
 #define Constant static const auto
+#define Global static auto

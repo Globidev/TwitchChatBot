@@ -62,6 +62,9 @@
     <ClCompile Include="ChatRoom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="IRCParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -76,12 +79,12 @@
     <ClInclude Include="ChatRoom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IRCParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Twitch_oauth.py">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="IRCParser.py">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
